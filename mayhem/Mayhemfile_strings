@@ -1,0 +1,10 @@
+project: savantenvs/apollo-rs
+target: strings
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/strings/testsuite
+
+cmds:
+  - cmd: /mayhem/strings
+    libfuzzer: true

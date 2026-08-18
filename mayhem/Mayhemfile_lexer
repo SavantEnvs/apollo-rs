@@ -1,0 +1,10 @@
+project: savantenvs/apollo-rs
+target: lexer
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/lexer/testsuite
+
+cmds:
+  - cmd: /mayhem/lexer
+    libfuzzer: true

@@ -1,0 +1,10 @@
+project: savantenvs/apollo-rs
+target: coordinate
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/coordinate/testsuite
+
+cmds:
+  - cmd: /mayhem/coordinate
+    libfuzzer: true

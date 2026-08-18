@@ -1,0 +1,69 @@
+# Additive cargo-fuzz crate for the savantenvs commit-image integration.
+#
+# Ported from upstream's own workspace-member `fuzz/` crate (fuzz_targets are byte-for-byte
+# copies — see mayhem/fuzz/fuzz_targets/). We do NOT reuse upstream's `fuzz/` directly: it is a
+# member of the ROOT workspace (`fuzz/Cargo.toml` has no [workspace] table, so it inherits the
+# root one), which means its Cargo.lock would be the ROOT Cargo.lock — landing outside `mayhem/`
+# and failing the additive-confinement check. An empty [workspace] table here makes this crate
+# its OWN workspace root, so `mayhem/fuzz/Cargo.lock` stays fully confined under `mayhem/`.
+[workspace]
+
+[package]
+name = "apollo-rs-fuzz"
+version = "0.0.0"
+authors = ["Automatically generated"]
+publish = false
+autotests = false
+edition = "2021"
+
+[lib]
+test = false
+doc = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+apollo-compiler = { path = "../../crates/apollo-compiler" }
+apollo-parser = { path = "../../crates/apollo-parser" }
+apollo-smith = { path = "../../crates/apollo-smith" }
+env_logger = "0.11.0"
+log = "0.4.14"
+similar-asserts = "2.0.0"
+
+[[bin]]
+name = "parser"
+path = "fuzz_targets/parser.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "parser_limited"
+path = "fuzz_targets/parser_limited.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "lexer"
+path = "fuzz_targets/lexer.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "strings"
+path = "fuzz_targets/strings.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "coordinate"
+path = "fuzz_targets/coordinate.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "validate"
+path = "fuzz_targets/validate.rs"
+test = false
+doc = false
