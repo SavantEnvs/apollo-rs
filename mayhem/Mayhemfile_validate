@@ -1,0 +1,10 @@
+project: savantenvs/apollo-rs
+target: validate
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/validate/testsuite
+
+cmds:
+  - cmd: /mayhem/validate
+    libfuzzer: true
