@@ -1,0 +1,19 @@
+# Standalone KAT (known-answer-test) probe crate. Confirms mayhem/test.sh's oracle is
+# BEHAVIORAL: it is a small, dynamically linked binary invoked directly from bash and its
+# stdout is asserted against exact expected values (see mayhem/test.sh). `cargo test` alone
+# is not sufficient (its harness binary's sabotage-detection behavior is unreliable), so this
+# probe drives the real apollo-parser/apollo-compiler API and prints checkable markers.
+#
+# An empty [workspace] table makes this its own workspace root (see mayhem/fuzz/Cargo.toml
+# for why), so mayhem/kat/Cargo.lock stays confined under mayhem/.
+[workspace]
+
+[package]
+name = "apollo-rs-kat"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+apollo-compiler = { path = "../../crates/apollo-compiler" }
+apollo-parser = { path = "../../crates/apollo-parser" }
