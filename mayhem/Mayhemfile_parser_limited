@@ -1,0 +1,10 @@
+project: savantenvs/apollo-rs
+target: parser_limited
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/parser_limited/testsuite
+
+cmds:
+  - cmd: /mayhem/parser_limited
+    libfuzzer: true
