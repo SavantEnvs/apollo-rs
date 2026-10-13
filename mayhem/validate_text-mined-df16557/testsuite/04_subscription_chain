@@ -1,0 +1,5 @@
+type Query { a: Int }
+type Subscription { a: Int }
+subscription S { ...s1 }
+fragment s1 on Subscription { ...s2 }
+fragment s2 on Subscription { a }

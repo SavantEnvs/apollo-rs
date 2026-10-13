@@ -1,0 +1,10 @@
+project: savantenvs/apollo-rs
+target: validate_text-mined-df16557
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/validate_text-mined-df16557/testsuite
+
+cmds:
+  - cmd: /mayhem/validate_text
+    libfuzzer: true
