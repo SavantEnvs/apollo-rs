@@ -1,0 +1,4 @@
+type Query { a: Int }
+query Q { ...f1 }
+fragment f1 on Query { ...f2 }
+fragment f2 on Query { a }

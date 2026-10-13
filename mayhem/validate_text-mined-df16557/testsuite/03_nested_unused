@@ -1,0 +1,3 @@
+type Query { a: Query b: Int }
+query Q($v: Int) { a { a { ... on Query { b @include(if: true) } } } }
+fragment unused on Query { b }
