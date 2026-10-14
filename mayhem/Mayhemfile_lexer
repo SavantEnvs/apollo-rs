@@ -1,0 +1,11 @@
+project: savantenvs/apollo-rs
+target: lexer-mined-a922484
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/lexer-mined-a922484/testsuite
+
+cmds:
+  - cmd: /mayhem/lexer
+    libfuzzer: true
+    max_length: 65536

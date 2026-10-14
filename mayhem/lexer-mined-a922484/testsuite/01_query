@@ -1,0 +1,3 @@
+query Q($id: ID!) {
+  user(id: $id) { name }
+}

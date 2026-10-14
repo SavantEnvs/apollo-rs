@@ -1,0 +1,4 @@
+"""
+A block string with \""" an escape
+"""
+type Query { a(x: String = "d\tz"): Int }

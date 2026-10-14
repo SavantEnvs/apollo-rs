@@ -1,0 +1,1 @@
+extend schema @a(b: "x\ny", c: """z""")

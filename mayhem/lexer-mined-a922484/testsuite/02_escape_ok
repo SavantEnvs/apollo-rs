@@ -1,0 +1,1 @@
+{ greeting(text: "caf\u00e9 \u0041\n") }

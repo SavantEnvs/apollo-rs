@@ -1,0 +1,1 @@
+type T { f(a: String = "\u00E9\uD7FF\uE000") : Int }
